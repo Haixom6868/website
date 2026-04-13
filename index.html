@@ -1,544 +1,125 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Văn Hóa Việt Nam - Hành Trình Di Sản</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Văn Hóa Việt Nam</title>
 
-    <style>
-        :root {
-            --imperial: #FFD700;
-            --lacquer: #8B0000;
-            --ink: #1A1A1A;
-            --paper: #FDFCF8;
-        }
+<script src="https://cdn.tailwindcss.com"></script>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--paper);
-            color: var(--ink);
-            scroll-behavior: smooth;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter&display=swap" rel="stylesheet">
 
-        .font-serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        .text-imperial { color: var(--imperial); }
-        .text-lacquer { color: var(--lacquer); }
-        .bg-imperial { background-color: var(--imperial); }
-        .bg-lacquer { background-color: var(--lacquer); }
-        .bg-ink { background-color: var(--ink); }
-        .bg-paper { background-color: var(--paper); }
-
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
-        }
-
-        .nav-glass {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .card-shadow {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .quiz-option:checked + label {
-            border-color: var(--imperial);
-            background-color: rgba(255, 215, 0, 0.1);
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .scale-in {
-            animation: scaleIn 0.5s ease-out forwards;
-        }
-
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-    </style>
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background: #FDFCF8;
+}
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+.hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+</style>
 </head>
-<body class="overflow-x-hidden">
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center nav-glass transition-all duration-300" id="navbar">
-        <div class="text-white font-serif text-2xl tracking-tight">
-            Văn Hóa <span class="text-imperial italic">Việt Nam</span>
-        </div>
-        <div class="hidden md:flex gap-8">
-            <a href="#culture" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Văn hóa</a>
-            <a href="#video" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Video</a>
-            <a href="#food" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Ẩm thực</a>
-            <a href="#gallery" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Hình ảnh</a>
-            <a href="#places" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Địa danh</a>
-            <a href="#festival" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Lễ hội</a>
-            <a href="#quiz" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Quiz</a>
-        </div>
-        <button class="md:hidden text-white" onclick="toggleMenu()">
-            <i data-lucide="menu"></i>
-        </button>
-    </nav>
+<body>
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-lacquer text-white p-12 flex flex-col justify-center items-center gap-8 hidden">
-        <button class="absolute top-8 right-8 p-2" onclick="toggleMenu()">
-            <i data-lucide="x" size="32"></i>
-        </button>
-        <a href="#culture" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Văn hóa</a>
-        <a href="#video" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Video</a>
-        <a href="#food" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Ẩm thực</a>
-        <a href="#gallery" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Hình ảnh</a>
-        <a href="#places" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Địa danh</a>
-        <a href="#festival" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Lễ hội</a>
-        <a href="#quiz" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Quiz</a>
+<!-- HERO -->
+<section class="relative h-screen flex items-center justify-center text-center text-white">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Ha_Long_Bay_in_Vietnam.jpg"
+         class="absolute w-full h-full object-cover">
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <div class="relative z-10">
+        <h1 class="text-6xl font-serif">Văn Hóa Việt Nam</h1>
+        <p class="mt-4">Khám phá vẻ đẹp đất nước hình chữ S</p>
     </div>
+</section>
 
-    <!-- HERO SECTION -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=2000" 
-             class="absolute inset-0 w-full h-full object-cover" 
-             referrerPolicy="no-referrer" alt="Vietnam Landscape">
-        <div class="absolute inset-0 hero-overlay"></div>
-        
-        <div class="relative z-10 text-center px-6" data-aos="fade-up">
-            <span class="text-imperial font-medium tracking-[0.4em] uppercase text-sm mb-6 block">Hành trình di sản ngàn năm</span>
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-white mb-8 leading-tight">
-                Văn Hóa <br>
-                <span class="italic text-imperial">Việt Nam</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-white/80 text-lg md:text-xl font-light leading-relaxed mb-12">
-                Khám phá vẻ đẹp tâm hồn, tinh hoa ẩm thực và những kỳ quan thiên nhiên hùng vĩ của dải đất hình chữ S.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#culture" class="inline-flex items-center gap-3 text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white hover:text-lacquer transition-all duration-300 group btn-hover">
-                    Bắt đầu khám phá <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
-            <i data-lucide="chevron-down" size="32"></i>
-        </div>
-    </section>
+<!-- VIDEO -->
+<section class="py-20 text-center bg-black text-white">
+    <h2 class="text-4xl font-serif mb-10">Video Giới Thiệu</h2>
 
-    <!-- VIDEO INTRODUCTION -->
-    <section id="video" class="py-32 px-6 bg-ink">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Phim ngắn giới thiệu</span>
-                <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Việt Nam: Vẻ Đẹp Bất Tận</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            <div class="video-container" data-aos="zoom-in">
-                <iframe 
-                    src="https://www.youtube.com/embed/S_76MvK_7pI?si=rX6Y_p3_f_Q_X_X_&autoplay=0" 
-                    title="Vietnam Introduction Video" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p class="text-white/60 text-center mt-12 font-light italic">
-                "Một cái nhìn toàn cảnh về đất nước, con người và những giá trị văn hóa trường tồn."
+    <div class="max-w-4xl mx-auto">
+        <iframe width="100%" height="500"
+            src="https://www.youtube.com/embed/FzG4uDgje3M"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<!-- CULTURE -->
+<section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Ao_dai_Vietnam.jpg"
+             class="rounded-xl shadow-lg">
+
+        <div>
+            <h2 class="text-4xl font-serif mb-4">Nền Văn Hiến</h2>
+            <p>
+                Văn hóa Việt Nam là sự kết tinh của hơn 4000 năm lịch sử,
+                mang đậm bản sắc dân tộc và tinh thần đoàn kết.
             </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CULTURE SECTION -->
-    <section id="culture" class="py-32 px-6 bg-paper">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div class="relative" data-aos="fade-right">
-                <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Culture">
-                </div>
-                <div class="absolute -bottom-10 -right-10 bg-imperial p-10 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
-                    <p class="text-lacquer font-serif text-xl italic leading-relaxed">
-                        "Văn hóa là sợi dây vô hình kết nối quá khứ, hiện tại và tương lai của một dân tộc."
-                    </p>
-                </div>
-            </div>
-            
-            <div data-aos="fade-left">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Bản sắc dân tộc</span>
-                <h2 class="text-5xl md:text-7xl font-serif text-lacquer mb-8">Nền Văn Hiến <br>Ngàn Năm</h2>
-                <div class="space-y-6 text-gray-600 text-lg leading-relaxed font-light">
-                    <p>
-                        Văn hóa Việt Nam là sự kết tinh của hơn 4000 năm lịch sử dựng nước và giữ nước, chịu ảnh hưởng sâu sắc từ nền văn minh lúa nước sông Hồng.
-                    </p>
-                    <p>
-                        Đó là sự hòa quyện tinh tế giữa các giá trị truyền thống của 54 dân tộc anh em, tạo nên một bức tranh đa sắc màu nhưng thống nhất trong đa dạng.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8 pt-8">
-                        <div>
-                            <h4 class="text-lacquer font-serif text-2xl mb-2">Con Người</h4>
-                            <p class="text-sm">Hiếu khách, kiên cường và luôn trọng tình nghĩa.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-lacquer font-serif text-2xl mb-2">Di Sản</h4>
-                            <p class="text-sm">Hàng ngàn di tích lịch sử và danh lam thắng cảnh.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- FOOD -->
+<section class="py-20 bg-black text-white px-6">
+    <h2 class="text-4xl text-center font-serif mb-16">Ẩm Thực Việt Nam</h2>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pho-Beef-Noodles-2008.jpg" class="rounded-xl">
+            <h3 class="text-xl mt-4">Phở</h3>
         </div>
-    </section>
 
-    <!-- FOOD SECTION -->
-    <section id="food" class="py-32 px-6 bg-ink text-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Tinh hoa ẩm thực</span>
-                <h2 class="text-5xl md:text-7xl font-serif mb-6">Hương Vị Quê Hương</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Food Card 1 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=1000" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             referrerPolicy="no-referrer" alt="Phở">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 p-8">
-                        <h3 class="text-3xl font-serif text-imperial mb-3">Phở Việt</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
-                            Món ăn quốc hồn quốc túy, sự kết hợp hoàn hảo giữa nước dùng thanh ngọt và thảo mộc.
-                        </p>
-                        <a href="https://vi.wikipedia.org/wiki/Ph%E1%BB%9F" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
-                    </div>
-                </div>
-                
-                <!-- Food Card 2 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1600454021970-351eff4a6554?auto=format&fit=crop&q=80&w=1000" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             referrerPolicy="no-referrer" alt="Bánh mì">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 p-8">
-                        <h3 class="text-3xl font-serif text-imperial mb-3">Bánh Mì</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
-                            Sự giao thoa văn hóa độc đáo, món ăn đường phố được yêu thích trên toàn thế giới.
-                        </p>
-                        <a href="https://vi.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC_Vi%E1%BB%87t_Nam" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
-                    </div>
-                </div>
-                
-                <!-- Food Card 3 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="300">
-                    <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1000" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             referrerPolicy="no-referrer" alt="Cà phê">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 p-8">
-                        <h3 class="text-3xl font-serif text-imperial mb-3">Cà Phê Sữa Đá</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
-                            Nét văn hóa vỉa hè thong dong, biểu tượng của nhịp sống đô thị Việt Nam.
-                        </p>
-                        <a href="https://vi.wikipedia.org/wiki/C%C3%A0_ph%C3%AA_s%E1%BB%AFa_%C4%91%C3%A1" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Banh_mi_thit.jpg" class="rounded-xl">
+            <h3 class="text-xl mt-4">Bánh mì</h3>
         </div>
-    </section>
 
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-32 px-6 bg-paper">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
-                <div>
-                    <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Khoảnh khắc di sản</span>
-                    <h2 class="text-5xl md:text-7xl font-serif text-lacquer">Góc Nhìn Việt Nam</h2>
-                </div>
-                <p class="max-w-md text-gray-500 font-light">Những hình ảnh chân thực về cuộc sống, con người và phong cảnh hữu tình.</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" referrerPolicy="no-referrer" alt="Vietnam Landscape">
-                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="100" referrerPolicy="no-referrer" alt="Traditional Art">
-                </div>
-                <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="200" referrerPolicy="no-referrer" alt="Sapa Terraces">
-                    <img src="https://images.unsplash.com/photo-1567000511279-b7301ffb20d9?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="300" referrerPolicy="no-referrer" alt="Hoi An Street">
-                </div>
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1506670643824-8875eafa512a?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="400" referrerPolicy="no-referrer" alt="Mekong Delta">
-                    <img src="https://images.unsplash.com/photo-1536631987701-596385792f61?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="500" referrerPolicy="no-referrer" alt="Lanterns">
-                </div>
-                <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="600" referrerPolicy="no-referrer" alt="Vietnamese Coffee">
-                    <img src="https://images.unsplash.com/photo-1600454021970-351eff4a6554?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="700" referrerPolicy="no-referrer" alt="Banh Mi">
-                </div>
-            </div>
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Vietnamese_iced_coffee.jpg" class="rounded-xl">
+            <h3 class="text-xl mt-4">Cà phê sữa đá</h3>
         </div>
-    </section>
 
-    <!-- PLACES SECTION -->
-    <section id="places" class="py-32 px-6 bg-paper overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Kỳ quan thế giới</span>
-                <h2 class="text-5xl md:text-7xl font-serif text-lacquer mb-6">Địa Danh Hùng Vĩ</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group relative rounded-3xl overflow-hidden shadow-2xl h-[500px]" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1552074284-5e88ef1aef18?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Vịnh Hạ Long">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-10 text-white w-full">
-                        <div class="flex items-center gap-2 text-imperial mb-2">
-                            <i data-lucide="map-pin" size="16"></i>
-                            <span class="text-xs uppercase tracking-widest">Quảng Ninh</span>
-                        </div>
-                        <h3 class="text-4xl font-serif mb-4">Vịnh Hạ Long</h3>
-                        <p class="text-white/70 max-w-md mb-6">Di sản thiên nhiên thế giới với hàng ngàn đảo đá vôi kỳ vĩ trên làn nước xanh lục bảo.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.google.com/maps/search/Vịnh+Hạ+Long" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Xem bản đồ</a>
-                            <a href="https://vi.wikipedia.org/wiki/Vịnh_Hạ_Long" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors btn-hover">Tìm hiểu thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="group relative rounded-3xl overflow-hidden shadow-2xl h-[500px]" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1567000511279-b7301ffb20d9?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Hội An">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div class="absolute bottom-0 p-10 text-white w-full">
-                        <div class="flex items-center gap-2 text-imperial mb-2">
-                            <i data-lucide="map-pin" size="16"></i>
-                            <span class="text-xs uppercase tracking-widest">Quảng Nam</span>
-                        </div>
-                        <h3 class="text-4xl font-serif mb-4">Phố Cổ Hội An</h3>
-                        <p class="text-white/70 max-w-md mb-6">Nơi thời gian như ngừng lại giữa những ngôi nhà tường vàng cổ kính và ánh đèn lồng lung linh.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.google.com/maps/search/Phố+cổ+Hội+An" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Xem bản đồ</a>
-                            <a href="https://vi.wikipedia.org/wiki/Hội_An" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors btn-hover">Tìm hiểu thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+</section>
+
+<!-- PLACES -->
+<section class="py-20 px-6">
+    <h2 class="text-4xl text-center font-serif mb-16">Địa Danh</h2>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Ha_Long_Bay_in_Vietnam.jpg" class="rounded-xl">
+            <h3 class="text-2xl mt-4">Vịnh Hạ Long</h3>
         </div>
-    </section>
 
-    <!-- FESTIVAL SECTION -->
-    <section id="festival" class="py-32 px-6 bg-paper">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Lễ hội truyền thống</span>
-                <h2 class="text-5xl md:text-7xl font-serif text-lacquer mb-6">Sắc Màu Lễ Hội</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group relative rounded-3xl overflow-hidden h-[400px]" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Tết">
-                    <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-4xl font-serif text-imperial mb-4">Tết Nguyên Đán</h3>
-                        <a href="https://vi.wikipedia.org/wiki/Tết_Nguyên_Đán" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Khám phá chi tiết</a>
-                    </div>
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none flex items-center justify-center">
-                        <h3 class="text-4xl font-serif text-white group-hover:hidden">Tết Nguyên Đán</h3>
-                    </div>
-                </div>
-                <div class="group relative rounded-3xl overflow-hidden h-[400px]" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1536631987701-596385792f61?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Trung Thu">
-                    <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-4xl font-serif text-imperial mb-4">Tết Trung Thu</h3>
-                        <a href="https://vi.wikipedia.org/wiki/Tết_Trung_thu" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Khám phá chi tiết</a>
-                    </div>
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none flex items-center justify-center">
-                        <h3 class="text-4xl font-serif text-white group-hover:hidden">Tết Trung Thu</h3>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Hoi_An_Lanterns.jpg" class="rounded-xl">
+            <h3 class="text-2xl mt-4">Hội An</h3>
         </div>
-    </section>
 
-    <!-- QUIZ SECTION -->
-    <section id="quiz" class="py-32 px-6 bg-ink text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-16" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Thử thách kiến thức</span>
-                <h2 class="text-5xl md:text-7xl font-serif mb-6">Bạn Hiểu Việt Nam <br>Đến Mức Nào?</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            
-            <form id="quiz-form" class="space-y-12 text-left" data-aos="fade-up" data-aos-delay="200">
-                <!-- Question 1 -->
-                <div class="space-y-6">
-                    <p class="text-2xl font-serif text-imperial">1. Phở là gì trong văn hóa Việt Nam?</p>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <input type="radio" id="q1a" name="q1" value="1" class="hidden quiz-option">
-                            <label for="q1a" class="block p-6 border border-white/20 rounded-2xl cursor-pointer hover:border-imperial transition-all">Món ăn quốc hồn quốc túy</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="q1b" name="q1" value="0" class="hidden quiz-option">
-                            <label for="q1b" class="block p-6 border border-white/20 rounded-2xl cursor-pointer hover:border-imperial transition-all">Một loại trang phục</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Question 2 -->
-                <div class="space-y-6">
-                    <p class="text-2xl font-serif text-imperial">2. Áo dài thường được mặc vào dịp nào?</p>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <input type="radio" id="q2a" name="q2" value="1" class="hidden quiz-option">
-                            <label for="q2a" class="block p-6 border border-white/20 rounded-2xl cursor-pointer hover:border-imperial transition-all">Lễ Tết, cưới hỏi, sự kiện</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="q2b" name="q2" value="0" class="hidden quiz-option">
-                            <label for="q2b" class="block p-6 border border-white/20 rounded-2xl cursor-pointer hover:border-imperial transition-all">Chỉ mặc khi đi ngủ</label>
-                        </div>
-                    </div>
-                </div>
+    </div>
+</section>
 
-                <div class="text-center pt-8">
-                    <button type="button" onclick="submitQuiz()" class="bg-imperial text-ink px-12 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 btn-hover">
-                        Xem Kết Quả
-                    </button>
-                </div>
-            </form>
-            
-            <div id="result" class="mt-12 p-10 bg-white/5 rounded-3xl hidden border border-imperial/30 scale-in">
-                <h4 class="text-3xl font-serif text-imperial mb-4">Kết quả của bạn</h4>
-                <p id="result-text" class="text-xl font-light"></p>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer class="bg-black text-white text-center py-10">
+    <p>© 2026 Văn Hóa Việt Nam</p>
+</footer>
 
-    <!-- FOOTER -->
-    <footer class="bg-ink text-white py-20 px-6 border-t border-white/5">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-center md:text-left">
-                <div class="text-white font-serif text-3xl mb-4">Văn Hóa <span class="text-imperial italic">Việt Nam</span></div>
-                <p class="text-white/40 max-w-xs font-light mb-4">Tôn vinh và gìn giữ những giá trị truyền thống tốt đẹp của dân tộc.</p>
-                <p class="text-white/60 text-sm font-light">
-                    Email: <a href="mailto:thophuongthao28@gmail.com" class="hover:text-imperial transition-colors">thophuongthao28@gmail.com</a>
-                </p>
-            </div>
-            
-            <div class="flex flex-col items-center md:items-end gap-4">
-                <div class="flex gap-6">
-                    <a href="https://facebook.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="facebook"></i></a>
-                    <a href="https://instagram.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="instagram"></i></a>
-                    <a href="https://youtube.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="youtube"></i></a>
-                </div>
-                <p class="text-white/20 text-xs uppercase tracking-widest mt-2">© 2026 Hành Trình Di Sản. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<script>
+lucide.createIcons();
+</script>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('py-4', 'bg-ink/95');
-                navbar.classList.remove('py-6');
-            } else {
-                navbar.classList.remove('py-4', 'bg-ink/95');
-                navbar.classList.add('py-6');
-            }
-        });
-
-        // Quiz Logic
-        function submitQuiz() {
-            let score = 0;
-            const form = document.getElementById("quiz-form");
-            const data = new FormData(form);
-            
-            let questionsAnswered = 0;
-            for (let v of data.values()) {
-                score += parseInt(v);
-                questionsAnswered++;
-            }
-            
-            if (questionsAnswered < 2) {
-                alert("Vui lòng trả lời hết các câu hỏi!");
-                return;
-            }
-
-            const result = document.getElementById("result");
-            const resultText = document.getElementById("result-text");
-            
-            resultText.innerText = "Bạn đã đạt " + score + "/2 điểm. " + 
-                (score === 2 ? "Bạn thực sự là một chuyên gia về văn hóa Việt!" : "Hãy tiếp tục khám phá để hiểu thêm về đất nước mình nhé!");
-            
-            result.classList.remove("hidden");
-            result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    </script>
 </body>
 </html>
