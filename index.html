@@ -20,73 +20,73 @@
 
     <style>
         :root {
-            --paper: #fdfcf7;
-            --lacquer: #8b2e2e;
-            --imperial: #d4af37;
-            --ink: #1a1a1a;
+            --imperial: #FFD700;
+            --lacquer: #8B0000;
+            --ink: #1A1A1A;
+            --paper: #FDFCF8;
         }
-        
-        html { scroll-behavior: smooth; }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--paper);
             color: var(--ink);
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        
-        h1, h2, h3, h4, .serif {
+
+        .font-serif {
             font-family: 'Cormorant Garamond', serif;
         }
-        
-        .bg-lacquer { background-color: var(--lacquer); }
+
+        .text-imperial { color: var(--imperial); }
         .text-lacquer { color: var(--lacquer); }
         .bg-imperial { background-color: var(--imperial); }
-        .text-imperial { color: var(--imperial); }
-        .bg-paper { background-color: var(--paper); }
+        .bg-lacquer { background-color: var(--lacquer); }
         .bg-ink { background-color: var(--ink); }
-        
+        .bg-paper { background-color: var(--paper); }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+
         .nav-glass {
             background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        
-        .card-shadow {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-        }
-        
-        .quiz-option:checked + label {
-            background-color: var(--imperial);
-            color: white;
-            border-color: var(--imperial);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .quiz-option:checked + label {
+            border-color: var(--imperial);
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .scale-in {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
     <!-- NAVIGATION -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center nav-glass transition-all duration-500">
-        <div class="text-white font-serif text-2xl tracking-tight flex items-center gap-2">
-            <span class="text-3xl">🇻🇳</span> Văn Hóa <span class="text-imperial italic">Việt Nam</span>
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center nav-glass transition-all duration-300" id="navbar">
+        <div class="text-white font-serif text-2xl tracking-tight">
+            Văn Hóa <span class="text-imperial italic">Việt Nam</span>
         </div>
-        
         <div class="hidden md:flex gap-8">
-            <a href="#culture" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Văn hóa</a>
-            <a href="#food" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Ẩm thực</a>
-            <a href="#gallery" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Hình ảnh</a>
-            <a href="#places" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Địa danh</a>
-            <a href="#festival" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Lễ hội</a>
-            <a href="#quiz" class="text-white/80 hover:text-imperial text-xs font-medium tracking-widest uppercase transition-colors">Quiz</a>
+            <a href="#culture" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Văn hóa</a>
+            <a href="#food" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Ẩm thực</a>
+            <a href="#gallery" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Hình ảnh</a>
+            <a href="#places" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Địa danh</a>
+            <a href="#quiz" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Quiz</a>
         </div>
-        
         <button class="md:hidden text-white" onclick="toggleMenu()">
             <i data-lucide="menu"></i>
         </button>
@@ -101,13 +101,12 @@
         <a href="#food" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Ẩm thực</a>
         <a href="#gallery" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Hình ảnh</a>
         <a href="#places" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Địa danh</a>
-        <a href="#festival" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Lễ hội</a>
         <a href="#quiz" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Quiz</a>
     </div>
 
     <!-- HERO SECTION -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=2000&q=80" 
+        <img src="https://picsum.photos/seed/vietnam-hero/1920/1080" 
              class="absolute inset-0 w-full h-full object-cover" 
              referrerPolicy="no-referrer" alt="Vietnam Landscape">
         <div class="absolute inset-0 hero-overlay"></div>
@@ -137,8 +136,8 @@
     <section id="culture" class="py-32 px-6 bg-paper">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="relative" data-aos="fade-right">
-                <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1567593322472-49262512458b?auto=format&fit=crop&q=80&w=1200" 
+                <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gray-200">
+                    <img src="https://picsum.photos/seed/vietnam-culture/800/1000" 
                          class="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Culture">
                 </div>
                 <div class="absolute -bottom-10 -right-10 bg-imperial p-10 rounded-2xl shadow-2xl hidden lg:block max-w-xs">
@@ -184,9 +183,9 @@
             
             <div class="grid md:grid-cols-3 gap-10">
                 <!-- Food Card 1 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow" data-aos="fade-up" data-aos-delay="100">
+                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&q=80&w=800" 
+                        <img src="https://picsum.photos/seed/vietnam-pho/600/800" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                              referrerPolicy="no-referrer" alt="Phở">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -200,9 +199,9 @@
                 </div>
                 
                 <!-- Food Card 2 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow" data-aos="fade-up" data-aos-delay="200">
+                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="200">
                     <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1600454021970-351eff4a6554?auto=format&fit=crop&q=80&w=800" 
+                        <img src="https://picsum.photos/seed/vietnam-banhmi/600/800" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                              referrerPolicy="no-referrer" alt="Bánh mì">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -216,9 +215,9 @@
                 </div>
                 
                 <!-- Food Card 3 -->
-                <div class="group relative rounded-3xl overflow-hidden card-shadow" data-aos="fade-up" data-aos-delay="300">
+                <div class="group relative rounded-3xl overflow-hidden card-shadow bg-gray-800" data-aos="fade-up" data-aos-delay="300">
                     <div class="aspect-[3/4]">
-                        <img src="https://images.unsplash.com/photo-1544145945-f904253d0c7b?auto=format&fit=crop&q=80&w=800" 
+                        <img src="https://picsum.photos/seed/vietnam-coffee/600/800" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                              referrerPolicy="no-referrer" alt="Cà phê">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -247,20 +246,20 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1524712245354-2c4e5e7124c5?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-64" data-aos="zoom-in" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1559592442-741e6b856d71?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-96" data-aos="zoom-in" data-aos-delay="100" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn1/400/600" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn2/400/800" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="100" referrerPolicy="no-referrer">
                 </div>
                 <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-96" data-aos="zoom-in" data-aos-delay="200" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-64" data-aos="zoom-in" data-aos-delay="300" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn3/400/800" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="200" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn4/400/600" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="300" referrerPolicy="no-referrer">
                 </div>
                 <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-64" data-aos="zoom-in" data-aos-delay="400" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-96" data-aos="zoom-in" data-aos-delay="500" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn5/400/600" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="400" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn6/400/800" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="500" referrerPolicy="no-referrer">
                 </div>
                 <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-96" data-aos="zoom-in" data-aos-delay="600" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=800" class="rounded-2xl w-full object-cover h-64" data-aos="zoom-in" data-aos-delay="700" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn7/400/800" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="600" referrerPolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/vn8/400/600" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="700" referrerPolicy="no-referrer">
                 </div>
             </div>
         </div>
@@ -276,63 +275,32 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="rounded-3xl overflow-hidden shadow-2xl h-[400px]" data-aos="fade-right">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=Vietnam&t=&z=5&ie=UTF8&iwloc=&output=embed"
-                        class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700">
-                    </iframe>
-                </div>
-                <div class="flex flex-col justify-center space-y-8" data-aos="fade-left">
-                    <div class="flex gap-6 items-start">
-                        <div class="p-4 bg-lacquer/5 text-lacquer rounded-2xl"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h4 class="text-2xl font-serif text-lacquer mb-2">Vịnh Hạ Long</h4>
-                            <p class="text-gray-500 text-sm">Kỳ quan thiên nhiên thế giới với hàng ngàn đảo đá vôi kỳ vĩ trên làn nước xanh lục bảo.</p>
+                <div class="group relative rounded-3xl overflow-hidden shadow-2xl h-[500px]" data-aos="fade-right">
+                    <img src="https://picsum.photos/seed/vietnam-halong/1000/1000" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                         referrerPolicy="no-referrer" alt="Vịnh Hạ Long">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-10 text-white">
+                        <div class="flex items-center gap-2 text-imperial mb-2">
+                            <i data-lucide="map-pin" size="16"></i>
+                            <span class="text-xs uppercase tracking-widest">Quảng Ninh</span>
                         </div>
-                    </div>
-                    <div class="flex gap-6 items-start">
-                        <div class="p-4 bg-lacquer/5 text-lacquer rounded-2xl"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h4 class="text-2xl font-serif text-lacquer mb-2">Cố Đô Huế</h4>
-                            <p class="text-gray-500 text-sm">Nơi lưu giữ những giá trị lịch sử và kiến trúc cung đình triều Nguyễn uy nghiêm.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6 items-start">
-                        <div class="p-4 bg-lacquer/5 text-lacquer rounded-2xl"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h4 class="text-2xl font-serif text-lacquer mb-2">Phố Cổ Hội An</h4>
-                            <p class="text-gray-500 text-sm">Thương cảng cổ kính với những ngôi nhà tường vàng và ánh đèn lồng lung linh.</p>
-                        </div>
+                        <h3 class="text-4xl font-serif mb-4">Vịnh Hạ Long</h3>
+                        <p class="text-white/70 max-w-md">Di sản thiên nhiên thế giới với hàng ngàn đảo đá vôi kỳ vĩ trên làn nước xanh lục bảo.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FESTIVAL SECTION -->
-    <section id="festival" class="py-32 px-6 bg-lacquer text-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Lễ hội truyền thống</span>
-                <h2 class="text-5xl md:text-7xl font-serif mb-6">Sắc Màu Lễ Hội</h2>
-                <div class="w-24 h-1 bg-imperial mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group relative rounded-3xl overflow-hidden" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Tết">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 class="text-4xl font-serif text-imperial">Tết Nguyên Đán</h3>
-                    </div>
-                </div>
-                <div class="group relative rounded-3xl overflow-hidden" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1608889176073-4f6b6c4dcd71?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110" 
-                         referrerPolicy="no-referrer" alt="Trung Thu">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 class="text-4xl font-serif text-imperial">Tết Trung Thu</h3>
+                <div class="group relative rounded-3xl overflow-hidden shadow-2xl h-[500px]" data-aos="fade-left">
+                    <img src="https://picsum.photos/seed/vietnam-hoian/1000/1000" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                         referrerPolicy="no-referrer" alt="Hội An">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-0 p-10 text-white">
+                        <div class="flex items-center gap-2 text-imperial mb-2">
+                            <i data-lucide="map-pin" size="16"></i>
+                            <span class="text-xs uppercase tracking-widest">Quảng Nam</span>
+                        </div>
+                        <h3 class="text-4xl font-serif mb-4">Phố Cổ Hội An</h3>
+                        <p class="text-white/70 max-w-md">Nơi thời gian như ngừng lại giữa những ngôi nhà tường vàng cổ kính và ánh đèn lồng lung linh.</p>
                     </div>
                 </div>
             </div>
@@ -341,13 +309,11 @@
 
     <!-- QUIZ SECTION -->
     <section id="quiz" class="py-32 px-6 bg-ink text-white">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="mb-12" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-16" data-aos="fade-up">
                 <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Thử thách kiến thức</span>
-                <h2 class="text-5xl font-serif mb-8">Bạn Hiểu Việt Nam <br>Đến Mức Nào?</h2>
-                <div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
-                    <div id="progress" class="bg-imperial h-full w-0 transition-all duration-1000"></div>
-                </div>
+                <h2 class="text-5xl md:text-7xl font-serif mb-6">Bạn Hiểu Việt Nam <br>Đến Mức Nào?</h2>
+                <div class="w-24 h-1 bg-imperial mx-auto"></div>
             </div>
             
             <form id="quiz-form" class="space-y-12 text-left" data-aos="fade-up" data-aos-delay="200">
@@ -389,7 +355,7 @@
             </form>
             
             <div id="result" class="mt-12 p-10 bg-white/5 rounded-3xl hidden border border-imperial/30 scale-in">
-                <h4 class="text-3xl font-serif text-imperial mb-4">Chúc mừng!</h4>
+                <h4 class="text-3xl font-serif text-imperial mb-4">Kết quả của bạn</h4>
                 <p id="result-text" class="text-xl font-light"></p>
             </div>
         </div>
@@ -409,7 +375,6 @@
                     <a href="#" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="instagram"></i></a>
                     <a href="#" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="youtube"></i></a>
                 </div>
-                <p class="text-white/40 text-sm mt-4">📧 thophuongthao28@gmail.com</p>
                 <p class="text-white/20 text-xs uppercase tracking-widest mt-2">© 2026 Hành Trình Di Sản. All rights reserved.</p>
             </div>
         </div>
@@ -460,9 +425,6 @@
                 alert("Vui lòng trả lời hết các câu hỏi!");
                 return;
             }
-
-            const progress = document.getElementById("progress");
-            progress.style.width = (score / 2 * 100) + "%";
 
             const result = document.getElementById("result");
             const resultText = document.getElementById("result-text");
