@@ -58,6 +58,23 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .quiz-option:checked + label {
             border-color: var(--imperial);
             background-color: rgba(255, 215, 0, 0.1);
@@ -71,6 +88,14 @@
         .scale-in {
             animation: scaleIn 0.5s ease-out forwards;
         }
+
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -82,6 +107,7 @@
         </div>
         <div class="hidden md:flex gap-8">
             <a href="#culture" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Văn hóa</a>
+            <a href="#video" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Video</a>
             <a href="#food" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Ẩm thực</a>
             <a href="#gallery" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Hình ảnh</a>
             <a href="#places" class="text-white/80 hover:text-imperial text-sm font-medium tracking-widest uppercase transition-colors">Địa danh</a>
@@ -99,6 +125,7 @@
             <i data-lucide="x" size="32"></i>
         </button>
         <a href="#culture" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Văn hóa</a>
+        <a href="#video" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Video</a>
         <a href="#food" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Ẩm thực</a>
         <a href="#gallery" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Hình ảnh</a>
         <a href="#places" onclick="toggleMenu()" class="text-3xl font-serif hover:text-imperial transition-colors">Địa danh</a>
@@ -123,7 +150,7 @@
                 Khám phá vẻ đẹp tâm hồn, tinh hoa ẩm thực và những kỳ quan thiên nhiên hùng vĩ của dải đất hình chữ S.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#culture" class="inline-flex items-center gap-3 text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white hover:text-lacquer transition-all duration-300 group">
+                <a href="#culture" class="inline-flex items-center gap-3 text-white border border-white/30 px-8 py-4 rounded-full hover:bg-white hover:text-lacquer transition-all duration-300 group btn-hover">
                     Bắt đầu khám phá <i data-lucide="arrow-right" class="group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
@@ -131,6 +158,29 @@
         
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
             <i data-lucide="chevron-down" size="32"></i>
+        </div>
+    </section>
+
+    <!-- VIDEO INTRODUCTION -->
+    <section id="video" class="py-32 px-6 bg-ink">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-imperial font-medium tracking-[0.2em] uppercase text-sm mb-4 block">Phim ngắn giới thiệu</span>
+                <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Việt Nam: Vẻ Đẹp Bất Tận</h2>
+                <div class="w-24 h-1 bg-imperial mx-auto"></div>
+            </div>
+            <div class="video-container" data-aos="zoom-in">
+                <iframe 
+                    src="https://www.youtube.com/embed/S_76MvK_7pI?si=rX6Y_p3_f_Q_X_X_&autoplay=0" 
+                    title="Vietnam Introduction Video" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="text-white/60 text-center mt-12 font-light italic">
+                "Một cái nhìn toàn cảnh về đất nước, con người và những giá trị văn hóa trường tồn."
+            </p>
         </div>
     </section>
 
@@ -194,9 +244,10 @@
                     </div>
                     <div class="absolute bottom-0 p-8">
                         <h3 class="text-3xl font-serif text-imperial mb-3">Phở Việt</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed">
+                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
                             Món ăn quốc hồn quốc túy, sự kết hợp hoàn hảo giữa nước dùng thanh ngọt và thảo mộc.
                         </p>
+                        <a href="https://vi.wikipedia.org/wiki/Ph%E1%BB%9F" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
                     </div>
                 </div>
                 
@@ -210,9 +261,10 @@
                     </div>
                     <div class="absolute bottom-0 p-8">
                         <h3 class="text-3xl font-serif text-imperial mb-3">Bánh Mì</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed">
+                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
                             Sự giao thoa văn hóa độc đáo, món ăn đường phố được yêu thích trên toàn thế giới.
                         </p>
+                        <a href="https://vi.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC_Vi%E1%BB%87t_Nam" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
                     </div>
                 </div>
                 
@@ -226,9 +278,10 @@
                     </div>
                     <div class="absolute bottom-0 p-8">
                         <h3 class="text-3xl font-serif text-imperial mb-3">Cà Phê Sữa Đá</h3>
-                        <p class="text-white/70 text-sm font-light leading-relaxed">
+                        <p class="text-white/70 text-sm font-light leading-relaxed mb-4">
                             Nét văn hóa vỉa hè thong dong, biểu tượng của nhịp sống đô thị Việt Nam.
                         </p>
+                        <a href="https://vi.wikipedia.org/wiki/C%C3%A0_ph%C3%AA_s%E1%BB%AFa_%C4%91%C3%A1" target="_blank" class="text-imperial text-xs uppercase tracking-widest font-bold hover:text-white transition-colors">Tìm hiểu thêm</a>
                     </div>
                 </div>
             </div>
@@ -248,20 +301,20 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="100" referrerPolicy="no-referrer">
+                    <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" referrerPolicy="no-referrer" alt="Vietnam Landscape">
+                    <img src="https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="100" referrerPolicy="no-referrer" alt="Traditional Art">
                 </div>
                 <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="200" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1567000511279-b7301ffb20d9?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="300" referrerPolicy="no-referrer">
+                    <img src="https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="200" referrerPolicy="no-referrer" alt="Sapa Terraces">
+                    <img src="https://images.unsplash.com/photo-1567000511279-b7301ffb20d9?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="300" referrerPolicy="no-referrer" alt="Hoi An Street">
                 </div>
                 <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1599708153386-62e25078935c?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="400" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1536631987701-596385792f61?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="500" referrerPolicy="no-referrer">
+                    <img src="https://images.unsplash.com/photo-1506670643824-8875eafa512a?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="400" referrerPolicy="no-referrer" alt="Mekong Delta">
+                    <img src="https://images.unsplash.com/photo-1536631987701-596385792f61?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="500" referrerPolicy="no-referrer" alt="Lanterns">
                 </div>
                 <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="600" referrerPolicy="no-referrer">
-                    <img src="https://images.unsplash.com/photo-1600454021970-351eff4a6554?auto=format&fit=crop&w=400" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="700" referrerPolicy="no-referrer">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-96 bg-gray-200" data-aos="zoom-in" data-aos-delay="600" referrerPolicy="no-referrer" alt="Vietnamese Coffee">
+                    <img src="https://images.unsplash.com/photo-1600454021970-351eff4a6554?auto=format&fit=crop&w=400&q=80" class="rounded-2xl w-full object-cover h-64 bg-gray-200" data-aos="zoom-in" data-aos-delay="700" referrerPolicy="no-referrer" alt="Banh Mi">
                 </div>
             </div>
         </div>
@@ -290,8 +343,8 @@
                         <h3 class="text-4xl font-serif mb-4">Vịnh Hạ Long</h3>
                         <p class="text-white/70 max-w-md mb-6">Di sản thiên nhiên thế giới với hàng ngàn đảo đá vôi kỳ vĩ trên làn nước xanh lục bảo.</p>
                         <div class="flex gap-4">
-                            <a href="https://www.google.com/maps/search/Vịnh+Hạ+Long" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors">Xem bản đồ</a>
-                            <a href="https://vi.wikipedia.org/wiki/Vịnh_Hạ_Long" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Tìm hiểu thêm</a>
+                            <a href="https://www.google.com/maps/search/Vịnh+Hạ+Long" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Xem bản đồ</a>
+                            <a href="https://vi.wikipedia.org/wiki/Vịnh_Hạ_Long" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors btn-hover">Tìm hiểu thêm</a>
                         </div>
                     </div>
                 </div>
@@ -308,8 +361,8 @@
                         <h3 class="text-4xl font-serif mb-4">Phố Cổ Hội An</h3>
                         <p class="text-white/70 max-w-md mb-6">Nơi thời gian như ngừng lại giữa những ngôi nhà tường vàng cổ kính và ánh đèn lồng lung linh.</p>
                         <div class="flex gap-4">
-                            <a href="https://www.google.com/maps/search/Phố+cổ+Hội+An" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors">Xem bản đồ</a>
-                            <a href="https://vi.wikipedia.org/wiki/Hội_An" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors">Tìm hiểu thêm</a>
+                            <a href="https://www.google.com/maps/search/Phố+cổ+Hội+An" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Xem bản đồ</a>
+                            <a href="https://vi.wikipedia.org/wiki/Hội_An" target="_blank" class="px-6 py-2 border border-white/30 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-colors btn-hover">Tìm hiểu thêm</a>
                         </div>
                     </div>
                 </div>
@@ -333,7 +386,7 @@
                          referrerPolicy="no-referrer" alt="Tết">
                     <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-4xl font-serif text-imperial mb-4">Tết Nguyên Đán</h3>
-                        <a href="https://vi.wikipedia.org/wiki/Tết_Nguyên_Đán" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors">Khám phá chi tiết</a>
+                        <a href="https://vi.wikipedia.org/wiki/Tết_Nguyên_Đán" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Khám phá chi tiết</a>
                     </div>
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none flex items-center justify-center">
                         <h3 class="text-4xl font-serif text-white group-hover:hidden">Tết Nguyên Đán</h3>
@@ -345,7 +398,7 @@
                          referrerPolicy="no-referrer" alt="Trung Thu">
                     <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-4xl font-serif text-imperial mb-4">Tết Trung Thu</h3>
-                        <a href="https://vi.wikipedia.org/wiki/Tết_Trung_thu" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors">Khám phá chi tiết</a>
+                        <a href="https://vi.wikipedia.org/wiki/Tết_Trung_thu" target="_blank" class="px-6 py-2 bg-imperial text-lacquer rounded-full text-sm font-medium hover:bg-white transition-colors btn-hover">Khám phá chi tiết</a>
                     </div>
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors pointer-events-none flex items-center justify-center">
                         <h3 class="text-4xl font-serif text-white group-hover:hidden">Tết Trung Thu</h3>
@@ -396,7 +449,7 @@
                 </div>
 
                 <div class="text-center pt-8">
-                    <button type="button" onclick="submitQuiz()" class="bg-imperial text-ink px-12 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all duration-300">
+                    <button type="button" onclick="submitQuiz()" class="bg-imperial text-ink px-12 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white transition-all duration-300 btn-hover">
                         Xem Kết Quả
                     </button>
                 </div>
@@ -422,9 +475,9 @@
             
             <div class="flex flex-col items-center md:items-end gap-4">
                 <div class="flex gap-6">
-                    <a href="#" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="facebook"></i></a>
-                    <a href="#" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="instagram"></i></a>
-                    <a href="#" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="text-white/60 hover:text-imperial transition-colors"><i data-lucide="youtube"></i></a>
                 </div>
                 <p class="text-white/20 text-xs uppercase tracking-widest mt-2">© 2026 Hành Trình Di Sản. All rights reserved.</p>
             </div>
