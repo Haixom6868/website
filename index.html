@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Văn Hóa Việt Nam</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -12,143 +13,174 @@
     --lacquer: #8b2e2e;
     --imperial: #d4af37;
 }
+html { scroll-behavior: smooth; }
 </style>
 </head>
 
 <body class="bg-gray-50">
 
-<!-- HEADER -->
-<header class="bg-white shadow-md fixed w-full z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-2xl font-bold text-red-800">🇻🇳 Văn Hóa Việt Nam</h1>
-        <nav class="space-x-6 text-sm font-medium">
-            <a href="#food" class="hover:text-red-600">Ẩm thực</a>
-            <a href="#places" class="hover:text-red-600">Địa danh</a>
-            <a href="#festival" class="hover:text-red-600">Lễ hội</a>
-            <a href="#quiz" class="hover:text-red-600">Quiz</a>
-        </nav>
+<!-- NAVBAR -->
+<nav class="fixed w-full bg-black text-white z-50 shadow">
+    <div class="max-w-6xl mx-auto flex justify-between p-4">
+        <h1 class="font-bold text-lg">🇻🇳 Văn Hóa Việt Nam</h1>
+        <div class="space-x-4 text-sm">
+            <a href="#food">Ẩm thực</a>
+            <a href="#art">Nghệ thuật</a>
+            <a href="#places">Địa danh</a>
+            <a href="#festival">Lễ hội</a>
+            <a href="#quiz">Quiz</a>
+        </div>
     </div>
-</header>
+</nav>
 
-<div class="h-20"></div>
+<div class="h-16"></div>
 
 <!-- HERO -->
-<section class="text-center py-20 bg-red-800 text-white">
-    <h1 class="text-5xl font-bold mb-4">Khám Phá Văn Hóa Việt Nam</h1>
-    <p>Nơi hội tụ truyền thống và bản sắc dân tộc</p>
+<section class="h-screen flex items-center justify-center bg-red-800 text-white text-center">
+    <div>
+        <h1 class="text-6xl font-bold mb-4">Văn Hóa Việt Nam</h1>
+        <p class="text-lg">Hành trình khám phá di sản và bản sắc</p>
+    </div>
 </section>
 
 <!-- FOOD -->
 <section id="food" class="py-20 text-center">
-    <h2 class="text-4xl mb-10">Ẩm Thực</h2>
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <div class="bg-white p-6 shadow rounded">
-            <h3 class="text-xl font-bold">Phở</h3>
-            <p>Món ăn nổi tiếng nhất Việt Nam 🍜</p>
-        </div>
-        <div class="bg-white p-6 shadow rounded">
-            <h3 class="text-xl font-bold">Bánh mì</h3>
-            <p>Ẩm thực đường phố nổi tiếng 🥖</p>
-        </div>
-        <div class="bg-white p-6 shadow rounded">
-            <h3 class="text-xl font-bold">Cà phê sữa đá</h3>
-            <p>Văn hóa cà phê đặc trưng ☕</p>
-        </div>
-    </div>
+<h2 class="text-4xl mb-10">Ẩm Thực</h2>
+<div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl font-bold">Phở</h3>
+<p>🍜 Món ăn quốc dân</p>
+</div>
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl font-bold">Bánh mì</h3>
+<p>🥖 Ẩm thực đường phố</p>
+</div>
+
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-xl font-bold">Cà phê sữa đá</h3>
+<p>☕ Văn hóa cà phê</p>
+</div>
+
+</div>
+</section>
+
+<!-- ART -->
+<section id="art" class="py-20 bg-black text-white text-center">
+<h2 class="text-4xl mb-10">Nghệ Thuật</h2>
+
+<p>👘 Áo dài – biểu tượng truyền thống</p>
+<p class="mt-2">🎭 Múa rối nước – nghệ thuật dân gian độc đáo</p>
+
 </section>
 
 <!-- PLACES -->
-<section id="places" class="py-20 bg-gray-100 text-center">
-    <h2 class="text-4xl mb-10">Địa Danh</h2>
+<section id="places" class="py-20 text-center bg-gray-100">
+<h2 class="text-4xl mb-10">Địa Danh</h2>
 
-    <div class="max-w-4xl mx-auto space-y-8">
+<div class="space-y-8">
 
-        <div>
-            <h3 class="text-2xl font-bold">Vịnh Hạ Long</h3>
-            <p>Di sản thiên nhiên thế giới</p>
-            <a href="https://maps.google.com/?q=Ha+Long+Bay" target="_blank" class="text-blue-600 underline">
-                Xem bản đồ
-            </a>
-        </div>
+<div>
+<h3 class="text-2xl font-bold">Vịnh Hạ Long</h3>
+<a href="https://maps.google.com/?q=Ha+Long+Bay" target="_blank" class="text-blue-600 underline">
+📍 Xem bản đồ
+</a>
+</div>
 
-        <div>
-            <h3 class="text-2xl font-bold">Hội An</h3>
-            <p>Phố cổ nổi tiếng</p>
-            <a href="https://maps.google.com/?q=Hoi+An" target="_blank" class="text-blue-600 underline">
-                Xem bản đồ
-            </a>
-        </div>
+<div>
+<h3 class="text-2xl font-bold">Hội An</h3>
+<a href="https://maps.google.com/?q=Hoi+An" target="_blank" class="text-blue-600 underline">
+📍 Xem bản đồ
+</a>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- FESTIVAL -->
 <section id="festival" class="py-20 text-center">
-    <h2 class="text-4xl mb-10">Lễ Hội & Văn Hóa</h2>
+<h2 class="text-4xl mb-10">Lễ Hội & Văn Hóa</h2>
 
-    <div class="max-w-4xl mx-auto space-y-10">
+<div class="space-y-10 max-w-4xl mx-auto">
 
-        <div class="bg-white p-6 shadow rounded">
-            <h3 class="text-2xl font-bold">Tết Nguyên Đán</h3>
-            <p>🎉 Lễ hội lớn nhất Việt Nam</p>
-            <p>🍜 Món ăn: Bánh chưng</p>
-            <p>👘 Trang phục: Áo dài</p>
-            <a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Nguy%C3%AAn_%C4%91%C3%A1n" target="_blank" class="text-blue-600 underline">
-                Tìm hiểu thêm
-            </a>
-        </div>
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-2xl font-bold">Tết Nguyên Đán</h3>
+<p>🎉 Lễ hội lớn nhất</p>
+<p>🍜 Bánh chưng</p>
+<p>👘 Áo dài</p>
+<a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Nguy%C3%AAn_%C4%91%C3%A1n" target="_blank" class="text-blue-600 underline">
+Xem thêm
+</a>
+</div>
 
-        <div class="bg-white p-6 shadow rounded">
-            <h3 class="text-2xl font-bold">Lễ hội Trung Thu</h3>
-            <p>🏮 Lễ hội dành cho trẻ em</p>
-            <p>🍰 Món ăn: Bánh trung thu</p>
-            <p>🎭 Hoạt động: Múa lân</p>
-            <a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Trung_thu" target="_blank" class="text-blue-600 underline">
-                Tìm hiểu thêm
-            </a>
-        </div>
+<div class="bg-white p-6 shadow rounded">
+<h3 class="text-2xl font-bold">Trung Thu</h3>
+<p>🏮 Lễ hội thiếu nhi</p>
+<p>🍰 Bánh trung thu</p>
+<p>🎭 Múa lân</p>
+<a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Trung_thu" target="_blank" class="text-blue-600 underline">
+Xem thêm
+</a>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- QUIZ -->
 <section id="quiz" class="py-20 bg-black text-white text-center">
-    <h2 class="text-3xl mb-6">Quiz Kiến Thức</h2>
+<h2 class="text-3xl mb-6">Quiz Kiến Thức</h2>
 
-    <form id="quiz-form" class="space-y-6">
+<form id="quiz-form" class="space-y-6">
 
-        <div>
-            <p>Phở là món ăn của nước nào?</p>
-            <label><input type="radio" name="q1" value="1"> Việt Nam</label>
-            <label><input type="radio" name="q1" value="0"> Thái Lan</label>
-        </div>
+<div>
+<p>Phở thuộc quốc gia nào?</p>
+<label><input type="radio" name="q1" value="1"> Việt Nam</label>
+<label><input type="radio" name="q1" value="0"> Nhật</label>
+</div>
 
-        <button type="button" onclick="submitQuiz()" class="bg-yellow-400 text-black px-6 py-2 rounded">
-            Kết quả
-        </button>
-    </form>
+<div>
+<p>Hội An thuộc tỉnh nào?</p>
+<label><input type="radio" name="q2" value="1"> Quảng Nam</label>
+<label><input type="radio" name="q2" value="0"> Huế</label>
+</div>
 
-    <div id="result" class="mt-6 hidden"></div>
+<button type="button" onclick="submitQuiz()" class="bg-yellow-400 text-black px-6 py-2 rounded">
+Xem kết quả
+</button>
+
+</form>
+
+<div id="result" class="mt-6 hidden text-xl"></div>
+
 </section>
 
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-white py-10 text-center">
-    <p>Liên hệ: thophuongthao28@gmail.com</p>
-    <p class="text-sm text-gray-400 mt-2">© 2026 Văn Hóa Việt Nam</p>
+<p>📧 thophuongthao28@gmail.com</p>
+<p class="text-sm text-gray-400 mt-2">© 2026 Văn Hóa Việt Nam</p>
 </footer>
 
 <script>
 function submitQuiz(){
-    let score = 0;
-    const data = new FormData(document.getElementById("quiz-form"));
+let score = 0;
+const data = new FormData(document.getElementById("quiz-form"));
 
-    for (let v of data.values()) {
-        score += parseInt(v);
-    }
+for (let v of data.values()) {
+    score += parseInt(v);
+}
 
-    const result = document.getElementById("result");
-    result.innerText = "Điểm: " + score;
-    result.classList.remove("hidden");
+const result = document.getElementById("result");
+
+if(score == 2){
+    result.innerText = "🌟 Xuất sắc!";
+}else if(score == 1){
+    result.innerText = "👍 Khá tốt!";
+}else{
+    result.innerText = "📘 Cần xem lại!";
+}
+
+result.classList.remove("hidden");
 }
 </script>
 
