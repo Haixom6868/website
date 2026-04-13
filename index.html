@@ -4,124 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Văn Hóa Việt Nam</title>
+<title>Văn Hóa Việt Nam - Portfolio</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <style>
-:root {
-    --lacquer: #8b2e2e;
-    --imperial: #d4af37;
-}
 html { scroll-behavior: smooth; }
+.glass {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
 </style>
 </head>
 
 <body class="bg-gray-50">
 
-<!-- NAVBAR -->
-<nav class="fixed w-full bg-black text-white z-50 shadow">
-    <div class="max-w-6xl mx-auto flex justify-between p-4">
-        <h1 class="font-bold text-lg">🇻🇳 Văn Hóa Việt Nam</h1>
-        <div class="space-x-4 text-sm">
-            <a href="#food">Ẩm thực</a>
-            <a href="#art">Nghệ thuật</a>
-            <a href="#places">Địa danh</a>
-            <a href="#festival">Lễ hội</a>
-            <a href="#quiz">Quiz</a>
-        </div>
-    </div>
+<!-- NAV -->
+<nav class="fixed w-full z-50 glass text-white">
+<div class="max-w-6xl mx-auto flex justify-between p-4">
+<h1 class="font-bold text-xl">🇻🇳 Vietnam Culture</h1>
+<div class="space-x-4">
+<a href="#food">Ẩm thực</a>
+<a href="#places">Địa danh</a>
+<a href="#festival">Lễ hội</a>
+<a href="#quiz">Quiz</a>
+</div>
+</div>
 </nav>
 
 <div class="h-16"></div>
 
 <!-- HERO -->
-<section class="h-screen flex items-center justify-center bg-red-800 text-white text-center">
-    <div>
-        <h1 class="text-6xl font-bold mb-4">Văn Hóa Việt Nam</h1>
-        <p class="text-lg">Hành trình khám phá di sản và bản sắc</p>
-    </div>
+<section class="h-screen relative flex items-center justify-center text-white text-center">
+
+<video autoplay muted loop class="absolute w-full h-full object-cover">
+<source src="https://cdn.coverr.co/videos/coverr-vietnam-landscape-1574/1080p.mp4">
+</video>
+
+<div class="absolute inset-0 bg-black/60"></div>
+
+<div class="relative z-10" data-aos="fade-up">
+<h1 class="text-7xl font-bold mb-4">Văn Hóa Việt Nam</h1>
+<p class="text-xl">Khám phá vẻ đẹp di sản & con người</p>
+</div>
+
 </section>
 
 <!-- FOOD -->
 <section id="food" class="py-20 text-center">
-<h2 class="text-4xl mb-10">Ẩm Thực</h2>
-<div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+<h2 class="text-5xl mb-10" data-aos="fade-up">Ẩm Thực</h2>
 
-<div class="bg-white p-6 shadow rounded">
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition" data-aos="zoom-in">
+<img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43" class="h-56 w-full object-cover">
+<div class="p-4">
 <h3 class="text-xl font-bold">Phở</h3>
-<p>🍜 Món ăn quốc dân</p>
+<p>🍜 Quốc hồn quốc túy</p>
+</div>
 </div>
 
-<div class="bg-white p-6 shadow rounded">
+<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition" data-aos="zoom-in">
+<img src="https://images.unsplash.com/photo-1604908176997-431bfcf9d24f" class="h-56 w-full object-cover">
+<div class="p-4">
 <h3 class="text-xl font-bold">Bánh mì</h3>
-<p>🥖 Ẩm thực đường phố</p>
+<p>🥖 Street food nổi tiếng</p>
+</div>
 </div>
 
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-xl font-bold">Cà phê sữa đá</h3>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition" data-aos="zoom-in">
+<img src="https://images.unsplash.com/photo-1544145945-f904253d0c7b" class="h-56 w-full object-cover">
+<div class="p-4">
+<h3 class="text-xl font-bold">Cà phê</h3>
 <p>☕ Văn hóa cà phê</p>
 </div>
+</div>
 
 </div>
 </section>
 
-<!-- ART -->
-<section id="art" class="py-20 bg-black text-white text-center">
-<h2 class="text-4xl mb-10">Nghệ Thuật</h2>
+<!-- MAP -->
+<section id="places" class="py-20 bg-gray-100 text-center">
+<h2 class="text-5xl mb-10" data-aos="fade-up">Địa Danh</h2>
 
-<p>👘 Áo dài – biểu tượng truyền thống</p>
-<p class="mt-2">🎭 Múa rối nước – nghệ thuật dân gian độc đáo</p>
-
-</section>
-
-<!-- PLACES -->
-<section id="places" class="py-20 text-center bg-gray-100">
-<h2 class="text-4xl mb-10">Địa Danh</h2>
-
-<div class="space-y-8">
-
-<div>
-<h3 class="text-2xl font-bold">Vịnh Hạ Long</h3>
-<a href="https://maps.google.com/?q=Ha+Long+Bay" target="_blank" class="text-blue-600 underline">
-📍 Xem bản đồ
-</a>
+<div class="max-w-4xl mx-auto" data-aos="zoom-in">
+<iframe 
+src="https://maps.google.com/maps?q=Ha%20Long%20Bay&t=&z=5&ie=UTF8&iwloc=&output=embed"
+class="w-full h-96 rounded-xl shadow">
+</iframe>
 </div>
 
-<div>
-<h3 class="text-2xl font-bold">Hội An</h3>
-<a href="https://maps.google.com/?q=Hoi+An" target="_blank" class="text-blue-600 underline">
-📍 Xem bản đồ
-</a>
-</div>
-
-</div>
 </section>
 
 <!-- FESTIVAL -->
 <section id="festival" class="py-20 text-center">
-<h2 class="text-4xl mb-10">Lễ Hội & Văn Hóa</h2>
+<h2 class="text-5xl mb-10">Lễ Hội</h2>
 
-<div class="space-y-10 max-w-4xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-2xl font-bold">Tết Nguyên Đán</h3>
-<p>🎉 Lễ hội lớn nhất</p>
-<p>🍜 Bánh chưng</p>
-<p>👘 Áo dài</p>
-<a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Nguy%C3%AAn_%C4%91%C3%A1n" target="_blank" class="text-blue-600 underline">
-Xem thêm
-</a>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-right">
+<img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae" class="h-56 w-full object-cover">
+<div class="p-4">
+<h3 class="text-xl font-bold">Tết</h3>
+<p>🍜 Bánh chưng | 👘 Áo dài</p>
+</div>
 </div>
 
-<div class="bg-white p-6 shadow rounded">
-<h3 class="text-2xl font-bold">Trung Thu</h3>
-<p>🏮 Lễ hội thiếu nhi</p>
-<p>🍰 Bánh trung thu</p>
-<p>🎭 Múa lân</p>
-<a href="https://vi.wikipedia.org/wiki/T%E1%BA%BFt_Trung_thu" target="_blank" class="text-blue-600 underline">
-Xem thêm
-</a>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-left">
+<img src="https://images.unsplash.com/photo-1608889176073-4f6b6c4dcd71" class="h-56 w-full object-cover">
+<div class="p-4">
+<h3 class="text-xl font-bold">Trung Thu</h3>
+<p>🏮 Đèn lồng | 🍰 Bánh</p>
+</div>
 </div>
 
 </div>
@@ -129,7 +125,12 @@ Xem thêm
 
 <!-- QUIZ -->
 <section id="quiz" class="py-20 bg-black text-white text-center">
-<h2 class="text-3xl mb-6">Quiz Kiến Thức</h2>
+
+<h2 class="text-4xl mb-6">Quiz</h2>
+
+<div class="w-1/2 mx-auto bg-gray-700 h-2 rounded mb-6">
+<div id="progress" class="bg-yellow-400 h-2 rounded w-0"></div>
+</div>
 
 <form id="quiz-form" class="space-y-6">
 
@@ -140,9 +141,9 @@ Xem thêm
 </div>
 
 <div>
-<p>Hội An thuộc tỉnh nào?</p>
-<label><input type="radio" name="q2" value="1"> Quảng Nam</label>
-<label><input type="radio" name="q2" value="0"> Huế</label>
+<p>Áo dài là gì?</p>
+<label><input type="radio" name="q2" value="1"> Trang phục</label>
+<label><input type="radio" name="q2" value="0"> Món ăn</label>
 </div>
 
 <button type="button" onclick="submitQuiz()" class="bg-yellow-400 text-black px-6 py-2 rounded">
@@ -156,29 +157,27 @@ Xem kết quả
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-gray-900 text-white py-10 text-center">
+<footer class="bg-gray-900 text-white text-center py-10">
 <p>📧 thophuongthao28@gmail.com</p>
-<p class="text-sm text-gray-400 mt-2">© 2026 Văn Hóa Việt Nam</p>
+<p class="text-gray-400">© 2026 Portfolio Văn Hóa Việt Nam</p>
 </footer>
 
 <script>
+AOS.init();
+
 function submitQuiz(){
 let score = 0;
 const data = new FormData(document.getElementById("quiz-form"));
 
-for (let v of data.values()) {
-    score += parseInt(v);
-}
+for (let v of data.values()) score += parseInt(v);
+
+document.getElementById("progress").style.width = (score/2*100) + "%";
 
 const result = document.getElementById("result");
 
-if(score == 2){
-    result.innerText = "🌟 Xuất sắc!";
-}else if(score == 1){
-    result.innerText = "👍 Khá tốt!";
-}else{
-    result.innerText = "📘 Cần xem lại!";
-}
+if(score==2) result.innerText="🌟 Xuất sắc!";
+else if(score==1) result.innerText="👍 Khá!";
+else result.innerText="📘 Cần cải thiện";
 
 result.classList.remove("hidden");
 }
